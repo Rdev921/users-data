@@ -19,7 +19,7 @@ function calculateAverageAge(users) {
   
   // Function to fetch user data from JSON Server and display event reports
   function fetchUserDataForReports() {
-    fetch("http://localhost:3000/users")
+    fetch("https://user-data-eaw5.onrender.com/users")
       .then(response => response.json())
       .then(users => {
         // Display event reports
