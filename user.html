@@ -1,0 +1,79 @@
+<div class="form">
+    <h2>Registration Form</h2>
+    <form id="registrationForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="Age">Age:</label>
+      <input id="Age" required />
+
+      <label for="place">Place:</label>
+      <input type="place" id="place" required />
+
+      <label for="Batch">Batch Name:</label>
+      <select id="Batch" required>
+        <option value="">Select Batch</option>
+        <option value="WEB-13">WEB-13</option>
+        <option value="WEB-14">WEB-14</option>
+        <option value="WEB-15">WEB-15</option>
+      </select>
+
+      <label for="profession">Profession:</label>
+      <select id="profession" required>
+        <option value="">Select Profession</option>
+        <option value="FSD">FSD</option>
+        <option value="Frontend">Frontend</option>
+        <option value="Backend">Backend</option>
+        <option value="Student">Student</option>
+      </select>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    const registrationForm = document.getElementById("registrationForm");
+   
+    registrationForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const age = parseInt(document.getElementById("Age").value);
+      const place = document.getElementById("place").value;
+      const batch_name = document.getElementById("Batch").value;
+      const profession = document.getElementById("profession").value;
+
+      let obj = {
+        name,
+        age,
+        place,
+        batch_name,
+        profession,
+      };
+    
+      try {
+        const response = await fetch(
+          "https://users-c4tp.onrender.com/users",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(obj),
+          }
+        );
+
+        if (response.ok) {
+          alert("Successfully registered.");
+          registrationForm.reset();
+        } else {
+          alert("Registration failed.");
+        }
+      } catch (error) {
+        alert("An error occurred during registration.");
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+</html>
