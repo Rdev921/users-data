@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    
+}
+.container{
+    display: flex;
+    max-width: 700px;
+    display: flex;
+}
+.card{
+    width: 300px;
+    height: 362px;
+    
+}
+
+.card img{
+    width: 100%;
+}
